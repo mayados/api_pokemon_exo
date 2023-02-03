@@ -29,3 +29,15 @@
 .pokeName{
     font-weight: bold;
 }
+
+.pokeImg{
+    height: 100px;
+    width: 100px;
+}
+
+
+                /* HOVER */
+
+.pokemon:hover{
+    filter: grayscale(1);
+}
