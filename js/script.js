@@ -31,6 +31,19 @@ console.log(result)
 Est asynchrone = les pokemons ne seront pas forcément dans l'ordre, ca va dépendre du chargement de l'image, des cractéristiques de l'objet etc.. Provient
 de l'api */
 
+
+// création d'un tableau associatif pour changer la couleur de fond en fonction de l'espèce
+var colors = {
+    "grass": "#89E482",
+    "water": "#72DDF0",
+    "normal": "#DDE3E5",
+    "fire": "#E98928",
+    "poison": "#E37057",
+    "bug": "#D085E7",
+    "ground": "#8F5C2D",
+    "electric": "#1F65D6",
+}
+
 // Je définis le nombre de pokémon que je souhaite afficher
 const nbPokemon = 110;
 
@@ -60,14 +73,24 @@ for (let i = 1; i <= nbPokemon; i++){
         p.innerHTML = capitalPokemonName
         // Afficher le type principal = 1er élément du tableau
         p2.innerHTML = pokemon.types[0].type.name
-        if(pokemon.id < 10){
-             p3.innerHTML = "00" + pokemon.id            
-        }else if(pokemon.id >= 10 && pokemon.id < 100){
-            p3.innerHTML = "0" + pokemon.id     
-        }else{
-            p3.innerHTML = pokemon.id
-        }
+        // On cherche le code couleur associé au type
+        div.style.background = colors[pokemon.types[0].type.name];
+
+
+    //  méthode avec slice pour afficher 3 digits
+    p3.innerHTML = ("00" + pokemon.id).slice(-3)
+
+    // Méthode avec if pour afficher 3 digits = plus lourd
+        // if(pokemon.id < 10){
+        //      p3.innerHTML = "00" + pokemon.id            
+        // }else if(pokemon.id >= 10 && pokemon.id < 100){
+        //     p3.innerHTML = "0" + pokemon.id     
+        // }else{
+        //     p3.innerHTML = pokemon.id
+        // }
    
+
+
         console.log(pokemon)
         // result.innerHTML += pokemon.name 
         // Pour éviter la concaténation, on utilise le guillement du 7 pour entourer le code, et on utilise ${variable} pour mettre la variable que l'on souhaite
