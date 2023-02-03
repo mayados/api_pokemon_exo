@@ -11,10 +11,12 @@
     background-color: pink;
     flex-wrap: wrap;
     padding: 50px;
+    gap: 5px;
 }
 
 .pokemon{
-    border: 1px solid orange;
+    border: 2px solid black;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,4 +24,8 @@
     gap: 5px;
     height: 300px;
     width: 300px;
+}
+
+.pokeName{
+    font-weight: bold;
 }
